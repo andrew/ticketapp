@@ -1,0 +1,9 @@
+<% @page_title = "New ticket" -%>
+<h1>New ticket</h1>
+
+<div class="ticket new-ticket">
+	<%= error_messages_for :ticket %>
+	<% form_for(:ticket, :url => tickets_path) do |f| %>
+		<%= render :partial => 'tickets/form', :locals => {:f => f} %>
+	<% end %>
+</div>

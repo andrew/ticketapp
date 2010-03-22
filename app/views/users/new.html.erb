@@ -1,0 +1,40 @@
+<% @page_title = "Signup" -%>
+<h1>Signup</h1>
+<div class="ticket">
+	<!--<h2>Signup with OpenID</h2>
+
+	<p><em>*not right now it's broken!*</em></p>
+	<%#= render :partial => "sessions/open_id_form" %>-->
+	
+	<%= error_messages_for :user %>
+	
+	<h2>Create an Account on Tickets</h2>
+
+	<% form_for :user, :url => users_path()  do |f| -%>
+	<p><label for="login"><b>Login</b> <span class="note">(required)</span></label><br/>
+	<%= f.text_field :login %></p>
+
+	<p><label for="email"><b>Email</b> <span class="note">(required)</span></label><br/>
+	<%= f.text_field :email %></p>
+
+	<p><label for="password"><b>Password</b> <span class="note">(required)</span></label><br/>
+	<%= f.password_field :password %></p>
+
+	<p><label for="password_confirmation">Confirm <b>Password</b> <span class="note">(required)</span></label><br/>
+	<%= f.password_field :password_confirmation %></p>
+
+	<p><%= submit_tag 'Signup Now' %> or <b><%= link_to "Login", login_path %></b> if you already have an account</p>
+	<% end -%>
+	
+	<p><span class="note">OpenID is coming soon, which will make signup even easier!</span></p>
+</div>
+
+<script type='text/javascript'>
+function init() {
+	new Effect.Tooltip('user_login', "This is what we'll call you, only letters, numbers, underscores and dashes", {className: 'tooltip', offset: {x:100, y:15}});
+	new Effect.Tooltip('user_email', 'This will not be shown, but needs to be real for activation', {className: 'tooltip', offset: {x:100, y:15}});
+	new Effect.Tooltip('user_password', 'Make sure its memorable and over 4 letters long', {className: 'tooltip', offset: {x:100, y:15}});
+	new Effect.Tooltip('user_password_confirmation', 'This should match the password above', {className: 'tooltip', offset: {x:100, y:15}});
+}
+Event.observe(window, 'load', init, false);
+</script>

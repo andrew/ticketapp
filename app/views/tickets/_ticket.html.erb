@@ -1,0 +1,28 @@
+<div id="ticket_<%= ticket.id %>" class="ticket <%= "reply" unless ticket.ticket.blank? %>">
+	<% if type and type == 'multi' %>
+	<div class="user-photo right">
+        <%= link_to gravatar(ticket.user.email), login_name_path(ticket.user) %>
+	</div>
+	<% end %>
+	
+	<div class="ticket-content">
+		<% if type and type == ('multi' or 'user') and ticket.content.length > 1000 %>
+			<%= truncate(nicely_format(ticket.content), 1000, "..." ) %></a>
+			<p><%= link_to "Read the whole Ticket here &raquo;", ticket_path(ticket) %></p>
+		<% else %>
+			<%= nicely_format(ticket.content) %></a>
+		<% end %>
+	</div>
+	
+	<span class="right note"><%= "<em>private</em>" if ticket.private %></span>
+	
+	<span class="note">Posted <%= distance_of_time_in_words_to_now(h(ticket.created_at)) %> ago
+	<% unless ticket.ticket.blank? %>
+	 in reply to <%= link_to ticket.ticket.user.login, ticket_path(ticket.ticket) %>
+	<% end %> and has <%= link_to pluralize(ticket.replies.count, "reply"), ticket_path(ticket) %>
+	
+	<% if logged_in? and (current_user == ticket.user or current_user.admin) -%>
+		- <% if (ticket.created_at + 5.minutes > Time.now) or current_user.admin %><span class="edit"><%= link_to "Edit", edit_ticket_path(ticket) %></span> or <% end %>
+			<%= link_to_remote("Delete", {:url => ticket_path(ticket), :method => :delete, :confirm => "are you sure?"}) %>
+	<% end -%></span>
+</div>

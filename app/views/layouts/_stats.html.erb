@@ -1,0 +1,8 @@
+<% if RAILS_ENV == "production" -%>
+	<script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
+	<script type="text/javascript">
+	var re_name_tag = "<% if logged_in? -%><%= strip_tags(current_user.login) %><% end -%>";
+	var re_context_tag = "<% if logged_in? -%>mailto:<%= strip_tags(current_user.email) %><% end -%>";
+	re_("9i2yy-a3v6hh5219");
+	</script>
+<% end %>

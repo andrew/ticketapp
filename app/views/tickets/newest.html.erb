@@ -1,0 +1,26 @@
+<h1><span class="left">New Unseen Tickets</span> <span class="right"><%= current_user.unseen_tickets.size %></span></h1> 
+
+<% if @tickets.blank? %>
+
+	<% if logged_in? %>
+		<%= render :partial => 'tickets/new_ticket' %>
+	<% end %>
+
+	<div class="ticket">
+		<h2>Nothing New Here</h2>
+		<p>There have not been any new tickets since you last logged in.</p>
+	</div>
+	
+<% else %>
+	
+	<%= periodically_call_remote(:url => { :controller => 'tickets', :action => 'index' }, :frequency => 60, :method => :get ) unless params[:page] %>
+	
+	<% if logged_in? %>
+		<%= render :partial => 'tickets/new_ticket' %>
+	<% end %>
+	
+	<div id="tickets">
+		<%= render :partial => 'tickets' %>
+	</div>
+	
+<% end %>

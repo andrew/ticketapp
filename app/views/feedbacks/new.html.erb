@@ -1,0 +1,23 @@
+<% @page_title = "Give us Feedback" -%>
+<h1>Feedback</h1>
+
+<div class="ticket">
+	<%= error_messages_for :feedback %>
+
+	<% form_for(:feedback, :url => feedbacks_path) do |f| %>
+		<h2><% if logged_in? %>Hi <b><%= strip_tags current_user.login %></b>, <% end %>Tell us what's on your mind</h2>
+		<p>Thanks for giving us your juicy, juicy feedback!</p> 
+		<p>We strive to make tickets as useful and easy as possible, if you think something could be improved let us know and we'll try to fix it.</p>
+	
+		<% unless logged_in? %>
+	  		<p><b>Name</b><br /><%= f.text_field :name %></p>
+	  		<p><b>Email</b> <span class="note">(required)</span><br /><%= f.text_field :email %></p>
+			<% end %>
+	  	<p><b>Your Feedback</b> <span class="note">(required)</span><br /><%= f.text_area :content, :rows => 8 %></p>
+	  	
+	  	<%= recaptcha_tags unless logged_in? %>
+	  	
+		<p><%= submit_tag "Submit it" %> or <%= link_to 'Return home', index_path %></p>
+	<% end %>
+</div>
+

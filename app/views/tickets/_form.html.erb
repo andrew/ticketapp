@@ -1,0 +1,7 @@
+<span id="new_ticket_msg" class="left"><b>Create a new ticket</b></span>
+<span class="right note">&lt;img&gt;, &lt;a&gt;, &lt;blockquote&gt; and &lt;code&gt; tags are allowed</span>
+<%= f.text_area :content, :rows => 7, :tabindex => '1' %>
+<div id="new-ticket-button">
+	<%= f.select(:private,  [['Public', false], ['Private', true]])  %>
+	<%= submit_tag "Add New Ticket", :id => 'x_submit', :onclick => "posting(); return false;" %>
+</div>

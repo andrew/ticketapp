@@ -1,0 +1,15 @@
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="keywords" content="Tickets, tumblog, twitter, blog, notes, rails, web app, ruby, development, teabass, Andrew Nesbitt" />
+<link rel="apple-touch-icon" href="/images/home-icon.png"/>
+<meta name="description" content="<%= gently_escape(@meta_description) || "Tickets is the little app that could, save text, ideas, code, links, bugs or anything in an instant, share it with lots of people or just keep it to yourself" %>" />
+<meta name="author" content="<%= gently_escape(@meta_author) || "Andrew Nesbitt" %>" />
+<%= stylesheet_link_tag 'application' %>
+<%= javascript_include_tag :all %>
+
+<% if iphone_user_agent? %>
+	<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+	<%= stylesheet_link_tag 'iphone' %>
+<% end %>
+
+<title>Tickets - <%= gently_escape(@page_title) || "It's kinda like Twitter" %></title>
+<%= @autorss %>

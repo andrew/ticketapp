@@ -1,0 +1,15 @@
+development: &defaults
+  adapter: sqlite3
+  database: db/development.sqlite3
+  timeout: 5000
+  encoding: utf8
+
+test:
+  database: db/test.sqlite3
+  <<: *defaults
+
+production:
+  adapter: mysql
+  database: tickets_production
+  username: root
+  password: 

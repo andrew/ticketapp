@@ -1,0 +1,118 @@
+/* tickets css
+site: http://ticketapp.com
+author: andrew nesbitt
+date: 17/07/2007 */
+
+body{background:#8bc7ff url(/images/background.jpg) repeat-x; color:#333; font-family: verdana, arial, helvetica, sans-serif; margin:0; padding:0;}
+
+.center{text-align:center;}
+.hidden{display:none;}
+.clear{clear:both;}
+.left{float:left;}
+.right{float:right;}
+.small{font-size:0.9em;}
+.border{border:1px #555 solid;}
+.note{color:#aaa;}
+.note a{color:#555;}
+.recent{font-size:0.8em;}
+.recent a{color:#777;}
+.red{color:#f31f1f;}
+
+.flash{background:#ff9; padding:5px; margin:5px 0; width:100%; border:1px solid #ff5;}
+
+input[type="text"], input[type="password"], textarea{border:1px solid #aaa; padding:4px; font-size:1.8em; font-family: helvetica, sans; width:50%;}
+.button-to, .button-to div, .button-to input{display:inline !important;}
+input[type="text"]:focus, input[type="password"]:focus{background:#ff9;}
+
+#openid_url, #user_open_id_url {background: url(http://openid.net/login-bg.gif) no-repeat #fff 5px; padding-left: 25px;}
+
+h1{color:#eee; margin:5px 0 5px 0; font-size:2.0em; width:100%; height:1.2em;}
+h1 .note{font-size:0.35em; font-weight:normal;}
+h2{display:inline; font-size:1.5em;}
+h3{font-size:1.1em;}
+
+a{color: #000; padding:1px;}
+a:visited{color:#666;}
+a:hover {color:#fff; background-color:#000;}
+
+blockquote{margin:5px 0 5px 5px; padding:1px 0 3px 5px; border-left:2px solid #ccc; color:#555; font-style:italic; font-size:1.3em;}
+
+h1 a {color:#bbb; text-decoration:none;}
+h1 a:visited {color:#bbb;}
+h1 a:hover {color:#fff;}
+
+hr{border:1px #eee solid;  width:75%;}
+
+a img{border:1px solid #555;}
+a:hover img{border:1px solid #000;}
+
+.ticket{border:1px solid #999; padding:5px; margin:0 0 8px 0; background:#fff; font-size:11px; float:left; width:100%; overflow:hidden;}
+.ticket img{max-width:99%;}
+.ticket-content{font-size:1.1em;}
+.ticket-content img{padding:0; border:1px solid #ddd; }
+.ticket-content a {font-weight:bold; color:#333;}
+.ticket-content a:hover {background:none;  color:#777;}
+
+.reply{background:url(/images/reply.gif) no-repeat #fff; }
+.edit{background:#ff9;}
+
+#wrapper{width:600px; margin:30px auto 10px auto; }
+
+#nav{z-index:999999; position:absolute !important; top:0; left:0; width:100%; background:#222; border-bottom:1px solid #bbb; border-top:none; color:#fff; font-size:0.75em; padding:2px 0; margin:0;} 
+#nav a{color:#fff;  text-decoration:none; line-height:17px; background:none; }
+#nav div{padding:0 3px; }
+#nav .style{color:#777; font-size:11px;}
+
+.new-ticket{border:1px solid #555; clear:both; padding:1px 5px 0px 5px; margin:5px 0; width:100%; background:#fff; font-size:11px;}
+.new-ticket-button{padding:0 5px; margin:0;}
+.new-ticket textarea{width:99%; padding:2px;}
+#new-ticket-button input{width:84%; margin:0; padding:2px 0 0 0;}
+#new-ticket-button input[type="submit"]{font-size:1.0em;}
+#new-ticket-button select{width:15%; border:1px solid #bbb; margin:1px 0 0 0; padding:0 0 1px 0; float:right;}
+
+#footer{padding:5px 5px 3px 5px; margin:5px 0 0 0; font-size:0.7em; clear:both; background:#111; color:#bbb; width:100%; border:1px solid #111;}
+#footer a{color:#bbb; text-decoration:none; padding:1px;}
+#footer a:visited{color: #ccc;}
+#footer a:hover{color: #000; background-color:#fff;}
+
+.errorExplanation{width:98%; background:#ff7979; outline:1px solid #f31f1f; padding:3px 5px; margin:5px 0 15px 0;}
+.errorExplanation h2{color:black;}
+
+.fieldWithErrors input, .fieldWithErrors textarea{background:#ffbfc8;}
+
+.new-ticket .fieldwitherrors textarea{background:#fff;}
+
+#flash-errors{background:#ff7979; border:1px solid #f31f1f;}
+
+.pagination{padding:5px; margin:0 0 5px 0; font-size:0.9em; width:100%; background:#ddd; clear:both; border:1px solid #bbb;}
+.pagination a{color:#000; text-decoration:none; padding:1px;}
+.pagination a:visited{color:#000;}
+.pagination a:hover{color:#fff; background-color:#000;}
+.pagination span{padding:1px; color:#000;}
+.pagination span.current {font-weight: bold; color:#4571b2;}
+.pagination span.disabled {display:none;}
+
+#feedback_content{width:98%;}
+
+.user-photo{margin:0 7px 1px 0; width:40px; height:40px;}
+.user-photo a{background:none; border-color:#000;}
+
+.tooltip, .tooltip-wide{border:1px solid #555; font-size:11px; padding:5px; width:150px; background:#eee; color:#555;}
+.tooltip-wide{width:200px;}
+
+#feedback-tab{background:red; color:#fff; width:9em; border:#c00f1f 1px solid; font-size:12px; float:right; padding:1px; text-align:right;}
+#feedback-tab a{color:white; text-decoration:none;}
+#feedback-tab a:hover{color:white; background:none; text-decoration:underline;}
+
+.social{width:90px;padding-top:5px;}
+.social a img{border:none;}
+.social a:hover{background:none;}
+
+#users_show #tickets .user-photo{display:none;}
+
+textarea{font-size:1.3em;}
+input{font-size:1.1em;}
+.pagination{font-size:0.9em;}
+/*#footer{display:none;}*/
+.ticket, .new-ticket{border-color:#888;}
+#new_ticket_msg span{color:red;}

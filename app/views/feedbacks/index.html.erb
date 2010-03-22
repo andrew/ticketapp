@@ -1,0 +1,21 @@
+<% @page_title = "Listing Feedback" -%>
+<h1>Listing Feedbacks</h1>
+
+<div class="ticket">
+	<p><b><%= Feedback.count %> feedbacks</b> have been left so far</p>
+</div>
+
+<% for feedback in @feedbacks %>
+ <div class="ticket"> 
+    <h2><%=strip_tags feedback.name %></h2> <span class="note">(<%=mail_to strip_tags(feedback.email) %>)</span>
+    <p><%=h feedback.content %></p>
+    
+    <span class="note right"><%=h feedback.created_at %> Resolved: <%=h feedback.resolved %>
+    
+    <%= link_to 'Show', feedback_path(feedback) %>
+    <%= link_to 'Edit', edit_feedback_path(feedback) %>
+    <%= link_to 'Destroy', feedback_path(feedback), :confirm => 'Are you sure?', :method => :delete %></span>
+  </div>
+<% end %>
+
+<%= will_paginate @feedbacks %>

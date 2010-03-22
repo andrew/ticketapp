@@ -1,0 +1,43 @@
+<% @page_title = "Edit #{strip_tags(@user.login)}" -%>
+<% @meta_author = strip_tags(@user.login) %>
+
+
+<h1>Edit <%= link_to strip_tags(@user.login), login_name_path(@user) %></h1>
+<div class="ticket">
+	<%= error_messages_for :photo %>
+
+	<h2>Change your email, photo or password</h2>
+
+    <p><a href="http://site.gravatar.com/" target="_blank"><%= gravatar(@user.email) %></a></p>
+    <p>If you see a <img src="https://secure.gravatar.com/avatar.php?gravatar_id=b8dbb1987e8e5318584865f880036761&size=12"/> above it means you don't have a Gravatar <br />
+    for that email address. <a href="http://site.gravatar.com/" target="_blank">Get one for free at gravatar.com</a>.</p>
+
+	<h2>Profile options</h2>
+	<%= error_messages_for :user %>
+	
+	<% form_for :user, :url => user_path(@user), :html => { :method => :put }  do |f| -%>
+	<p><label for="email">Email</label><br/>
+	<%= f.text_field :email %></p>
+	
+	<p>Default ticket <b>privacy</b><br />
+	<%= f.select(:privacy_default, [['Public', false], ['Private', true]]) %></p>
+
+    <!-- <p><label for="open_id_url">OpenID</label><br/>
+    <%= f.text_field :open_id_url %></p>
+    
+    <p class="note">If you don't already have an OpenID account you can easily create one at <%= link_to 'MyOpenID', 'http://www.myopenid.com' -%></p> -->
+
+	<p>You <b>only</b> need to fill in the password bits if you want to change your password:</p>
+	<p><label for="password">New Password</label><br/>
+	<%= f.password_field :password %></p>
+
+	<p><label for="password_confirmation">Confirm New Password</label><br/>
+	<%= f.password_field :password_confirmation %></p>
+
+	<p><%= submit_tag 'Update' %> or <b><%= link_to "Cancel", user_path(@user) %></b></p>
+	<% end -%>
+	
+	<hr />
+	
+	<h3>Want to Delete your account? <%= link_to "Click here", delete_user_path(@user) %></h3>
+</div>

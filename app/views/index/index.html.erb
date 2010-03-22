@@ -1,0 +1,37 @@
+<% @page_title = "It's kinda like Twitter" -%>
+<h1>Hi, We're new!</h1>
+<div class="ticket">
+	<%= render :partial => 'social_links' %>
+
+	<h2>What is Tickets?</h2> 
+
+	<p>Tickets is a mixture of a tumblelog, a todo list and a status notifier.</p>
+	
+	<p>A <b>ticket</b> is just a note, a little scrap of webpage. You can put ideas, thoughts, todo lists, bugs, links and even pictures in them. The sooner you get all those yummy thoughts recorded somewhere the sooner you can do something about them.</p>
+	
+	<h3>How can you use it?</h3>
+	
+	<p>Feel free to use it any way you like and if you can't think of any way to use it here are some suggestions:</p>
+	<img src="/images/icon.png" class="right" />
+	<ul>
+		<li>Bug tracker</li>
+		<li>Idea keeper</li>
+		<li>Note jotter</li>
+		<li>Tumblog</li>
+		<li>List maker</li>
+		<li>Personality Spammer</li>
+		<li>Friend Updater</li>
+	</ul>
+	
+	<h3><%= link_to "Browse the Users", users_path %> or <%= link_to "See Recent Tickets", tickets_path %></h3>
+	
+	<p><b><%= Ticket.count %></b> Tickets have been created so far, and more are added every day.</p>
+	
+	<p>Any which way you use it, it's free and easy <em>(but not a hussy)</em> <b>Enjoy!</b></p>
+	
+	<% unless logged_in? %>
+	<div class="center">
+		<h2><%= link_to "Login", login_path %> or <%= link_to "Signup", signup_path %> now!</h2>
+	</div>
+	<% end %>
+</div>

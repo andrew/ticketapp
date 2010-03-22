@@ -1,0 +1,12 @@
+<div class="ticket">
+	<div class="user-photo left">
+        <%= link_to gravatar(user.email), login_name_path(user) %>
+	</div>
+	<h2><%= link_to strip_tags(user.login), login_name_path(user) %></h2><br />
+	<b><%= pluralize user.tickets.count, "Tickets" %></b><br />
+	Joined <%= distance_of_time_in_words_to_now user.created_at %> ago 
+	<% if logged_in? and current_user.admin -%>
+		 <span class="note">(<%= link_to "edit", edit_user_path(user) %>)</span>
+	<% end %>
+	
+</div>

@@ -1,0 +1,16 @@
+<% @page_title = "Showing Feedback Item" -%>
+<h1>Showing Feedback Item</h1>
+
+<div class="ticket">
+	<p><b>Name:</b><%= strip_tags(@feedback.name) %></p>
+
+	<p><b>Email:</b><%= mail_to strip_tags(@feedback.email) %></p>
+
+	<p><b>Content:</b><%= strip_tags @feedback.content %></p>
+
+	<p><b>Posted:</b><%=h @feedback.created_at %></p>
+
+	<p><b>Resolved:</b><%=h @feedback.resolved %></p>
+
+	<p><%= link_to 'Edit', edit_feedback_path(@feedback) %> | <%= link_to 'Back', feedbacks_path %></p>
+</div>

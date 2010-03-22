@@ -1,0 +1,13 @@
+<% @page_title = "Delete Account" -%>
+<h1>Delete Account</h1>
+<div class="ticket">
+	<h2>We'll be sorry to see you go!</h2>
+	<p>If you delete your account all of your personal information, email, passwords, tickets and photo will be permanently  deleted, no going back from this one, are you really sure you want to do this?</p>
+	
+	<div class="center">
+		<img src="/images/delete.jpg" class="border" />
+	</div>
+	
+	<p>If you didn't like something in particular then why not <b><%= link_to "leave us some feedback", new_feedback_path %></b> and tell us what's wrong?</p>
+	<div class="center"><h3><%= link_to 'Click here to Delete Account', user_path(@user), :confirm => 'Are you sure?', :method => :delete %> or <%= link_to 'Cancel', index_path %></h3></div>
+</div>

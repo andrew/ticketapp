@@ -1,0 +1,20 @@
+<% @page_title = "Editing Feedback" -%>
+<h1>Editing feedback</h1>
+<div class="ticket">
+	<%= error_messages_for :feedback %>
+
+	<% form_for(:feedback, :url => feedback_path(@feedback), :html => { :method => :put }) do |f| %>
+		<p><b>Name</b><br /><%= f.text_field :name %></p>
+
+	  	<p><b>Email</b><br /><%= f.text_field :email %></p>
+
+	  	<p><b>Content</b><br /><%= f.text_area :content %></p>
+
+	  	<p><b>Resolved</b><br /><%= f.check_box :resolved %></p>
+
+	  	<p><%= submit_tag "Update" %></p>
+	<% end %>
+
+	<%= link_to 'Show', feedback_path(@feedback) %> |<%= link_to 'Back', feedbacks_path %>
+</div>
+

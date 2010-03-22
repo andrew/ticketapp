@@ -1,0 +1,16 @@
+<div id="nav">
+	<div>
+		<span class="left">
+			<b><%= link_to "Tickets", index_path, :title => "The little app that could" %></b> 
+			<span class="recent"><em><%= link_to "see all", tickets_path %></em></span> 
+		</span>
+		<span class="right small note">
+			<% if logged_in? -%>
+				<%= link_to strip_tags(current_user.login), login_name_path(current_user) %>/<%= link_to "Replies", replies_user_path(current_user) %>/<%= link_to "Settings", edit_user_path(current_user) %>/<%= (link_to "Feedback", feedbacks_path) + "/" if current_user.admin %><%= link_to "Logout", logout_path %>
+			<% else -%>
+				<%= link_to "Login", login_path + "?return_to=#{request.path}" %>/<%= link_to "Signup", signup_path%>
+			<% end -%>
+		</span>
+	</div>
+	<div class="clear"></div>
+</div>

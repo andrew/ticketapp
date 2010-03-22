@@ -1,0 +1,6 @@
+upgrade deploy.rb
+
+remove rss feeds in favour of atom
+switch to jquery
+switch to sass
+finish api

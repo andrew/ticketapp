@@ -1,0 +1,38 @@
+<% @page_title = "Login" -%>
+<h1>Login</h1>
+<div class="ticket">
+
+	<h2>Use your Login &amp; Password</h2>
+	<p>You'll need to login to create new tickets, but if your just browsing then there is no need. If you don't already have a login and password then you can get one by <b><%= link_to "Signing up", signup_path %></b></p>
+	<% form_tag sessions_path do -%>
+	
+	  	<p><label for="login"><b>Login or Email</b></label><br/>
+	  	<%= text_field_tag 'login' %></p>
+
+	  	<p><label for="password"><b>Password</b></label><br/>
+	  	<%= password_field_tag 'password' %></p>
+	
+	<%= hidden_field 'return_to', "" , :value => params[:return_to] %>
+
+	  	<p><%= check_box_tag 'remember_me' %> <label for="remember_me">Keep me logged in</label>
+	  	</p>
+	
+	<!-- <h2>Sign in with OpenID</h2>
+		
+		<p>
+		  <label for="openid_url"><b>OpenID url</b></label><br />
+		  <%= text_field_tag "openid_url" %>
+		</p> -->
+	
+	<p><%= submit_tag 'Login to Tickets' %> <span class="note"><%= link_to "Forgotten password?", forgot_password_path %></span></p>
+	<% end -%>
+</div>
+
+<script type='text/javascript'>
+function init() {
+	new Effect.Tooltip('login', "Hi! Welcome back :]", {className: 'tooltip', offset: {x:50, y:15}});
+	new Effect.Tooltip('password', 'Did you remember it?', {className: 'tooltip', offset: {x:50, y:15}});
+	new Effect.Tooltip('remember_me', "We'll login you automatically if you like", {className: 'tooltip', offset: {x:10, y:15}});
+}
+Event.observe(window, 'load', init, false);
+</script>

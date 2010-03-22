@@ -1,0 +1,26 @@
+<% @page_title = "Replies" %>
+
+<h1>Replies to <%= link_to "your Tickets", login_name_path(current_user) %></h1>
+
+<% if @replies.blank? %>
+	<div class="ticket">
+		<h2>No replies here</h2>
+		<p>Either you don't have any tickets, your tickets are all private or no-one has replied to any of your tickets, cos we can't find any replies for you!</p>
+	</div>
+<% else %>
+
+	<% for reply in @replies %>
+		<div class="ticket">
+			<div class="user-photo right">
+                <%= link_to gravatar(reply.user.email), login_name_path(reply.user) %>
+			</div>
+	
+			<b>In reply to <%= link_to "Ticket #{reply.ticket.id}", ticket_path(reply.ticket) %></b>
+		<div class="ticket-content"><%= nicely_format(reply.content) %></div>
+			<span class="note">By <%= link_to reply.user.login, login_name_path(reply.user) %> <%= distance_of_time_in_words_to_now(h(reply.created_at)) %> ago, why not <%= link_to "reply to them?", ticket_path(reply) %></span>
+		</div>
+	<% end %>
+
+<% end %>
+
+<%= will_paginate @replies %>

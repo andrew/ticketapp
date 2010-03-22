@@ -1,0 +1,6 @@
+<div id="new_ticket_form" class="ticket new-ticket">
+	<%= error_messages_for :ticket %>
+	<% remote_form_for(:ticket, :url => tickets_path, :html => {:id => 'x_new_ticket_form'}) do |f| %>
+		<%= render :partial => 'tickets/form', :locals => {:f => f} %>
+	<% end %>
+</div>

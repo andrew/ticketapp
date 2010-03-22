@@ -1,0 +1,13 @@
+<div class="new-ticket">
+	<span id="new_ticket_msg" class="left"><b>Reply to <%= @user.login %>'s ticket</b></span>
+	<span class="right note">&lt;img&gt;, &lt;a&gt;, &lt;blockquote&gt; and &lt;code&gt; tags are allowed</span>
+	<%= error_messages_for :reply %>
+	<% remote_form_for(:reply, :url => tickets_path, :html => {:id => 'x_new_ticket_form'}) do |f| %>
+	<%= text_area 'ticket',:content, :value => "", :rows => 6 %>
+	<%= hidden_field  'ticket', :reply_id, :value => @ticket.id %>
+	<div id="new-ticket-button">
+		<%= f.select(:private,  [['Public', false], ['Private', true]])  %>
+		<%= submit_tag "Add New Ticket", :id => 'x_submit', :onclick => "posting(); return false;" %>
+	</div>
+	<% end %>
+</div>

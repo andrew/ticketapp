@@ -1,0 +1,18 @@
+<div class="ticket <%= "reply" unless reply.ticket.blank? %>">		
+	<div class="user-photo right">
+	    <%= link_to gravatar(reply.user.email), login_name_path(reply.user) %>
+	</div>
+	
+	<div class="ticket-content">
+		<%= nicely_format(reply.content) %></a>
+	</div>
+
+	<span class="note">
+	Posted <%= distance_of_time_in_words_to_now(h(reply.created_at)) %> ago
+	<% unless reply.ticket.blank? %>
+	 in reply to <%= link_to reply.ticket.user.login, ticket_path(reply.ticket) %>
+	<% end %> and has <%= link_to pluralize(reply.replies.count, "reply"), ticket_path(reply) %>
+	<% if logged_in? and (current_user == reply.user or current_user.admin) -%>
+		- <% if (reply.created_at + 5.minutes > Time.now) or current_user.admin %><span class="edit"><%= link_to "Edit", edit_ticket_path(reply) %></span> or <% end %><%= link_to 'Delete', ticket_path(reply), :confirm => 'Are you sure?', :method => :delete %>
+	<% end -%></span>
+</div>

@@ -1,0 +1,11 @@
+<% if @tickets.blank? %>
+	<div class="ticket" id='tickets'>
+		<h2>No Tickets created yet</h2>
+		<p>There are no tickets on tickets? Something must have gone horribly wrong!!</p>
+	</div>
+<% else %>
+	<% for ticket in @tickets %>
+		<%= render :partial => 'tickets/ticket', :locals => {:ticket => ticket, :type => 'multi'} %>
+	<% end %>
+	<%= will_paginate @tickets %>
+<% end %>

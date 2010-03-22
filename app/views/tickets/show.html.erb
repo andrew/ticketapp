@@ -1,0 +1,30 @@
+<% @user = @ticket.user %>
+<% @page_title = "#{@user.login} - Ticket #{@ticket.id}" -%>
+<% @meta_author = @user.login %>
+<% @meta_description = @ticket.content %>
+
+<div class="user-photo left">
+    <%= link_to gravatar(@user.email), login_name_path(@user) %>
+</div>
+
+<h1><%= link_to strip_tags(@user.login), login_name_path(@user) %>/<%= link_to "Ticket #{ticket.id}", ticket_path(@ticket) %></h1>
+
+<%= render :partial => 'ticket' %>
+
+<div class="pagination ticket">
+	<h2><%= pluralize (@replies.size, "Reply") %></h2>
+</div>
+
+<% unless @replies.blank? %>
+	<% for reply in @replies %>
+		<%= render :partial => 'reply', :locals => {:reply => reply} %>
+	<% end %>
+	<%= will_paginate @replies %>
+<% end %>
+<div id='tickets'></div>
+
+<% if logged_in? %>
+	<%= render :partial => 'new_reply' %>
+<% else %>
+	<div class="ticket"><%= link_to "Login", login_path + "?return_to=#{request.path}" %> to leave a response</div>
+<% end %>

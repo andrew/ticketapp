@@ -1,0 +1,4 @@
+<%= nicely_format(ticket.content) %></a>
+
+Posted <%= distance_of_time_in_words_to_now(h(ticket.created_at)) %> ago<% unless ticket.ticket.blank? %>
+	 in reply to <%= link_to ticket.ticket.user.login, ticket_path(ticket.ticket) %><% end %>, posted by <%= link_to h(ticket.user.login), login_name_path(ticket.user) %> and has <%= link_to pluralize(ticket.replies.count, "reply"), ticket_path(ticket) %>

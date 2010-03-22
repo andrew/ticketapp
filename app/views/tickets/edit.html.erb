@@ -1,0 +1,14 @@
+<% @page_title = "Editing ticket #{@ticket.id}"  -%>
+<h1>Editing ticket <%= @ticket.id %></h1>
+
+<div class="new-ticket">
+	<%= error_messages_for :ticket %>
+	<% form_for(:ticket, :url => ticket_path(@ticket), :html => { :method => :put }) do |f| %>
+	<span class="left"><b>Change this ticket</b></span>
+	<span class="right note">&lt;img&gt;, &lt;a&gt;, &lt;blockquote&gt; and &lt;code&gt; tags are allowed</span>
+	<%= f.text_area :content, :rows => 4%>
+	<div id="new-ticket-button">
+		<%= submit_tag "Save Edited Ticket" %><%= f.select(:private,  [['Public', false], ['Private', true]])  %>
+	</div>
+	<% end %>
+</div>

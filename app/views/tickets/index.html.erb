@@ -1,0 +1,26 @@
+<% @autorss= "<link rel='alternate' type='application/rss+xml' title='New Tickets RSS' href='#{formatted_tickets_path(:rss)}' />" -%>
+<% @autorss+= "<link rel='alternate' type='application/atom+xml' title='New Tickets ATOM' href='#{formatted_tickets_path(:atom)}' />" -%>
+<% @page_title = "Recent Tickets" -%>
+
+<h1><span class="left">Recent Tickets</span> <span class="right"><%= Ticket.not_private.size %></span></h1> 
+
+<% if @tickets.out_of_bounds? %>
+
+	<div class="ticket">
+		<h2>Out of Bounds</h2>
+		<p>You have requested a page which does not exist!</p>
+	</div>
+	
+<% else %>
+	
+	<%= periodically_call_remote(:url => { :controller => 'tickets', :action => 'index' }, :frequency => 60, :method => :get ) unless params[:page] %>
+	
+	<% if logged_in? %>
+		<%= render :partial => 'tickets/new_ticket' %>
+	<% end %>
+
+	<div id="tickets">
+		<%= render :partial => 'tickets' %>
+	</div>
+
+<% end %>

@@ -1,0 +1,21 @@
+<% @autorss= "<link rel='alternate' type='application/rss+xml' title='New Users RSS' href='#{formatted_users_path(:rss)}' />" -%>
+<% @autorss+= "<link rel='alternate' type='application/atom+xml' title='New Users ATOM' href='#{formatted_users_path(:atom)}' />" -%>
+<% @page_title = "Users" -%>
+<h1><span class="left"><%= link_to "Users", users_path %></span> <span class="right"><%= User.count %></span></h1>
+
+<% if @users.out_of_bounds? %>
+
+	<div class="ticket">
+		<h2>Out of Bounds</h2>
+		<p>You have requested a page which does not exist!</p>
+	</div>
+	
+<% else %>
+
+	<% for user in @users %>
+		<%= render :partial => 'user', :locals => {:user => user} %>
+	<% end %>
+
+	<%= will_paginate @users %>
+
+<% end %>

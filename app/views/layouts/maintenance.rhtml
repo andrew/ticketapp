@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta name="keywords" content="Tickets, notes, rails, web app, ruby, development, teabass, Andrew Nesbitt" />
+	<meta name="description" content="Tickets is the little app that could, save text, ideas, code, links, bugs or anything in an instant, share it with lots of people or just keep it to yourself" />
+	<meta name="author" content="Tickets" />
+	<title>Tickets - We're just fixing some stuff</title>
+
+	<style type="text/css" media="screen">
+		body{background:#8bc7ff url(http://teabass.com/background.jpg) repeat-x; color:#333; font-family: verdana, arial, helvetica, sans-serif; margin:0; padding:0;}
+		.center{text-align:center;}
+		.clear{clear:both;}
+		.left{float:left;}
+		.right{float:right;}
+		.small{font-size:0.9em;}
+		.border{border:1px #555 solid;}
+		.note{color:#aaa;}
+		.note a{color:#555;}
+		h1{color:#eee; margin:5px 0 5px 0; font-size:2.0em;}
+		h2{display:inline; font-size:1.5em;}
+		h3{font-size:1.1em;}
+		a{color: #000; padding:1px;}
+		a:visited{color:#666;}
+		a:hover {color:#fff; background-color:#000;}
+		h1 a {color:#bbb; text-decoration:none;}
+		h1 a:visited {color:#bbb;}
+		h1 a:hover {color:#fff;}
+		a img{border:1px #555 solid;}
+		a:hover img{border:1px #000 solid;}
+		.ticket{border:1px solid #555; padding:5px; margin:0 0 8px 0; background:#fff; font-size:11px; float:left; width:100%; overflow:hidden;}
+		#wrapper{width:580px; margin:30px auto 10px auto; padding:0 0 10px 0;}
+		#nav{z-index:999999; position:absolute !important; top:0; left:0; width:100%; background:#222; border-bottom:1px solid #bbb; border-top:none; color:#fff;  font-size:13px; padding:2px 0; margin:0;} 
+		#nav a{color:#fff;  font-size:13px; text-decoration:none; line-height:17px; background:none; }
+		#nav div{padding:0 3px; }
+		#footer{padding:5px 5px 3px 5px; margin:5px 0 0 0; font-size:0.7em; clear:both; background:#111; color:#bbb; width:100%; border:1px solid #111;}
+		#footer a{color:#bbb; text-decoration:none; padding:1px;}
+		#footer a:visited{color: #ccc;}
+		#footer a:hover{color: #000; background-color:#fff;}
+	</style>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+	<div id="nav">
+		<div><span class="left"><b><a href="/" title="The little app that could">Tickets</a></b></span>
+		<span class="right small note">We're just fixing some stuff</span></div>
+		<div class="clear"></div>
+	</div>
+	<div id="content">
+		
+		<h1>OMG!! Tickets is down</h1>
+		<div class="ticket">
+		   <h2>We're currently down for <%= reason ? reason : "maintenance" %>
+		  as of <%= Time.now.strftime("%H:%M %Z") %></h2>
+
+			<div class="center">
+				<p><a href="/" title="Take me home!"><img src="http://teabass.com/maintenance.jpg" class="border" /></a></p>
+			</div>
+			<p>
+			  Sorry for the inconvenience. We'll be back 
+			  <%= deadline ? "by #{deadline}" : "shortly" %>.
+			  Please <a href="mailto:ticketapp@gmail.com">email</a> us if you need to get in touch.
+			</p>
+		</div>
+	
+	</div>
+	<div id="footer">
+
+		<span class="right">Designed and Coded by <a href="http://teabass.com" title="Tickets was created Andrew Nesbitt">Andrew Nesbitt</a></span>
+		<div class="clear"></div> 
+	</div>
+</div>
+
+<script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
+<script type="text/javascript">
+var re_name_tag = "500 Error";
+var re_context_tag = "";
+re_("9i2yy-a3v6hh5219");
+</script>
+	
+</body>
+</html>
+
